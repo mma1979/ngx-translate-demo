@@ -23,10 +23,15 @@ language$ = this.languageSubject.asObservable();
   }
 
   updateUI(language: string) {
+    document.querySelector('body')!.lang = language
+    let themeLink = document.getElementById('rtl-style') as HTMLLinkElement;
+
     if(language === 'ar') {
       document.querySelector('body')!.dir = 'rtl'
+      themeLink.href = 'https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.rtl.min.css'
     }else{
       document.querySelector('body')!.dir = 'ltr'
+      themeLink.href = ''
     }
   }
 }
